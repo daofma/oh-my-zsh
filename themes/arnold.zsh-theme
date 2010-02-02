@@ -1,4 +1,4 @@
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(scm_prompt_info)'
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(scm_prompt_info) # '
 
 ZSH_THEME_SCM_PROMPT_PREFIX=""
 ZSH_THEME_SCM_PROMPT_SUFFIX="%{$reset_color%}"
@@ -16,4 +16,4 @@ ZSH_THEME_SCM_PATCHES_POSTUNAPPLIED="%{$reset_color%}"
 ZSH_THEME_SCM_PATCHES_SUFFIX="%{$reset_color%}"
 ZSH_THEME_SCM_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_SCM_PROMPT_UNTRACKED="%{$fg[green]%}?"
-ZSH_THEME_SCM_PROMPT_CLEAN="clean"
+ZSH_THEME_SCM_PROMPT_CLEAN=""
