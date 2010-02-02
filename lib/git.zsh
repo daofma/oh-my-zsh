@@ -32,13 +32,12 @@ parse_git_dirty () {
 
 parse_git_branch_status () {
   gitstat=$(echo $1 | grep "Your branch is")
-
-  if ${gitstat}; then
+  if [ $? ]; then
 	if echo ${gitstat} | grep -q "ahead"; then
 		echo -n "$ZSH_THEME_SCM_PROMPT_AHEAD"
-	elif echo ${gitstat} | grep "diverged"; then
+	elif echo ${gitstat} | grep -q "diverged"; then
 		echo -n "$ZSH_THEME_SCM_PROMPT_DIVERGED"
-	else
+	elif echo ${gitstat} | grep -q "behind"; then
 		echo -n "$ZSH_THEME_SCM_PROMPT_BEHIND"
 	fi
   fi
