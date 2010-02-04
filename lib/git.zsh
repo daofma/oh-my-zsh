@@ -11,6 +11,7 @@ function git_prompt_info() {
 	zsh_scm_info_dirty=$(parse_git_dirty $gitstat)
 	zsh_scm_info_branch_status=$(parse_git_branch_status $gitstat)
 	zsh_scm_info_patches=""
+	zsh_scm_info_type="$ZSH_THEME_SCM_PROMPT_GIT"
 	print -P "$ZSH_THEME_SCM_PROMPT_PREFIX$ZSH_THEME_SCM_PROMPT_ORDER$ZSH_THEME_SCM_PROMPT_SUFFIX"
 }
 

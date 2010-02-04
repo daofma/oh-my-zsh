@@ -1,7 +1,10 @@
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(scm_prompt_info) %# '
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(scm_prompt_info)
+%# '
 
-ZSH_THEME_SCM_PROMPT_ORDER='${zsh_scm_info_branch}${zsh_scm_info_tags}${zsh_scm_info_dirty}${zsh_scm_info_branch_status}${zsh_scm_info_patches}'
+ZSH_THEME_SCM_PROMPT_ORDER='${zsh_scm_info_type}${zsh_scm_info_branch}${zsh_scm_info_tags}${zsh_scm_info_dirty}${zsh_scm_info_branch_status}${zsh_scm_info_patches}'
 
+ZSH_THEME_SCM_PROMPT_GIT="git"
+ZSH_THEME_SCM_PROMPT_HG="hg"
 ZSH_THEME_SCM_PROMPT_PREFIX=""
 ZSH_THEME_SCM_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_SCM_BRANCH_PREFIX=" on %{$fg[magenta]%}"
