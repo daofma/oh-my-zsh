@@ -57,7 +57,7 @@ ZSH_THEME_SCM_PROMPT_HG="hg"                # If the current directory is in mer
 # ${zsh_scm_info_dirty}           dirty/clean/untracked status text
 # ${zsh_scm_info_branch_status}   ahead/diverged/behind status text
 # ${zsh_scm_info_patches}         list of patches in queue
-ZSH_THEME_SCM_PROMPT_ORDER='${zsh_scm_info_type}${zsh_scm_info_branch}${zsh_scm_info_tags}${zsh_scm_info_dirty}${zsh_scm_info_branch_status}${zsh_scm_info_patches}'
+ZSH_THEME_SCM_PROMPT_ORDER='${zsh_scm_info_branch}${zsh_scm_info_dirty}'
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
