@@ -1,4 +1,3 @@
-# get the name of the branch we are on
 function git_prompt_info() {
 	gitstat=$(git status 2>/dev/null)
 
