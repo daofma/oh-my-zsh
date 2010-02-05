@@ -49,6 +49,7 @@ ZSH_THEME_SCM_PROMPT_DIVERGED=""            # If the local branch is diverged fr
 ZSH_THEME_SCM_PROMPT_BEHIND=""              # If the local branch is behind the remote branch
 ZSH_THEME_SCM_PROMPT_GIT="git"              # If the current directory is in git
 ZSH_THEME_SCM_PROMPT_HG="hg"                # If the current directory is in mercurial
+ZSH_THEME_SCM_PROMPT_CVS="cvs"              # If the current directory is in cvs
 
 # use the following variables to construct the SCM part of the prompt
 # ${zsh_scm_info_type}            the scm type (from git or hg above)
