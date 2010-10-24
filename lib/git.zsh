@@ -1,5 +1,5 @@
 function git_prompt_info() {
-	gitstat=$(git status 2>/dev/null)
+	gitstat=$(git status --porcelain 2>/dev/null)
 
 	if [[ $? -eq 128 ]]; then
 		return
@@ -15,23 +15,33 @@ function git_prompt_info() {
 }
 
 parse_git_dirty () {
-  gitstat=$(echo $1 | grep '\(# Untracked\|# Changes\|# Changed but not updated:\)')
-
-  if echo ${gitstat} | grep -q "^# Changes to be committed:$"; then
-	echo -n "$ZSH_THEME_SCM_PROMPT_DIRTY"
+  gitstat=$1
+  STATUS=""
+  if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_UNTRACKED$STATUS"
   fi
-
-  if echo ${gitstat} | grep -q "^\(# Untracked files:\|# Changed but not updated:\)$"; then
-	echo -n "$ZSH_THEME_SCM_PROMPT_UNTRACKED"
-  fi 
-
-  if [[ $(echo ${gitstat} | grep -v '^$' | wc -l | tr -d ' ') == 0 ]]; then
-	echo -n "$ZSH_THEME_SCM_PROMPT_CLEAN"
+  if $(echo "$INDEX" | grep '^A  ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_ADDED$STATUS"
+  elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_ADDED$STATUS"
   fi
+  if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
+  fi
+  if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_RENAMED$STATUS"
+  fi
+  if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
+  fi
+  if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
+    STATUS="$ZSH_THEME_GIT_PROMPT_UNMERGED$STATUS"
+  fi
+  echo $STATUS
 }
 
 parse_git_branch_status () {
-  gitstat=$(echo $1 | grep "Your branch is")
+  gitstat=$(git branch -v | grep "^*")
   if [ $? ]; then
 	if echo ${gitstat} | grep -q "ahead"; then
 		echo -n "$ZSH_THEME_SCM_PROMPT_AHEAD"
@@ -43,11 +53,3 @@ parse_git_branch_status () {
   fi
 }
 
-#
-# Will return the current branch name
-# Usage example: git pull origin $(current_branch)
-#
-function current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
