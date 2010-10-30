@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+local git_branch=$1
+
+echo $git_branch | cut -d' ' -f 2

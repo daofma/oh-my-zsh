@@ -1,9 +1,11 @@
 #!/usr/bin/env zsh
 
-if echo ${ZSH_GIT_BRANCH} | grep -q "ahead"; then
-	echo -n "$ZSH_THEME_SCM_PROMPT_AHEAD"
-elif echo ${ZSH_GIT_BRANCH} | grep -q "diverged"; then
-	echo -n "$ZSH_THEME_SCM_PROMPT_DIVERGED"
-elif echo ${ZSH_GIT_BRANCH} | grep -q "behind"; then
-	echo -n "$ZSH_THEME_SCM_PROMPT_BEHIND"
+local git_branch=$1
+
+if echo ${git_branch} | grep -q "ahead"; then
+    echo -n "$ZSH_THEME_SCM_PROMPT_AHEAD"
+elif echo ${git_branch} | grep -q "diverged"; then
+    echo -n "$ZSH_THEME_SCM_PROMPT_DIVERGED"
+elif echo ${git_branch} | grep -q "behind"; then
+    echo -n "$ZSH_THEME_SCM_PROMPT_BEHIND"
 fi
