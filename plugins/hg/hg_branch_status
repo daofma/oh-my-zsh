@@ -13,5 +13,4 @@ elif ${outgoing}; then
 elif ${incoming}; then
     print "${ZSH_THEME_SCM_PROMPT_BEHIND}"
 else
-    print "${ZSH_THEME_SCM_PROMPT_CLEAN}"
 fi
