@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+hg outgoing 1>/dev/null 2>/dev/null
+ahead=$?
+
+hg incoming 1>/dev/null 2>/dev/null
+behind=$?
+
+if [[ ${outgoing} -ne 0 && ${incoming} -ne 0 ]] then
+    print "${ZSH_THEME_SCM_PROMPT_DIVERGED}"
+elif ${outgoing}; then
+    print "${ZSH_THEME_SCM_PROMPT_AHEAD}"
+elif ${incoming}; then
+    print "${ZSH_THEME_SCM_PROMPT_BEHIND}"
+else
+    print "${ZSH_THEME_SCM_PROMPT_CLEAN}"
+fi

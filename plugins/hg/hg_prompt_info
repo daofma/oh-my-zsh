@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+if [[ ${ZSH_HG} -eq 0 ]]; then
+    export ZSH_SCM_INFO_TYPE="${ZSH_THEME_SCM_PROMPT_HG}"
+    export ZSH_SCM_INFO_DIRTY="${ZSH_HG_INFO_DIRTY}"
+    export ZSH_SCM_INFO_BRANCH="${ZSH_HG_INFO_BRANCH}"
+    export ZSH_SCM_INFO_BRANCH_STATUS="${ZSH_HG_INFO_BRANCH_STATUS}"
+    export ZSH_SCM_INFO_PATCHES="${ZSH_HG_INFO_PATCHES}"
+    export ZSH_SCM_INFO_TAGS="${ZSH_HG_INFO_TAGS}"
+fi

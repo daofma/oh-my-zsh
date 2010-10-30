@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+
+autoload git_current_branch git_parse_dirty git_parse_branch_status
+
 # Aliases
 alias g='git'
 alias gst='git status'
@@ -16,15 +20,6 @@ alias glg='git log --stat --max-count=5'
 
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-
-#
-# Will return the current branch name
-# Usage example: git pull origin $(current_branch)
-#
-function current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
 
 # these aliases take advangate of the previous function
 alias ggpull='git pull origin $(current_branch)'

@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+STATUS=""
+
+if $(echo "$ZSH_GIT_STATUS" | grep -q '^?? '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_UNTRACKED$STATUS"
+fi
+
+if $(echo "$ZSH_GIT_STATUS" | grep -q '^A  '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_ADDED$STATUS"
+elif $(echo "$ZSH_GIT_STATUS" | grep -q '^M  '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_ADDED$STATUS"
+fi
+
+if $(echo "$ZSH_GIT_STATUS" | grep -q '^ M '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_MODIFIED$STATUS"
+fi
+
+if $(echo "$ZSH_GIT_STATUS" | grep -q '^R  '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_RENAMED$STATUS"
+fi
+
+if $(echo "$ZSH_GIT_STATUS" | grep -q '^ D '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_DELETED$STATUS"
+fi
+
+if $(echo "$ZSH_GIT_STATUS" | grep -q '^UU '); then
+	STATUS="$ZSH_THEME_SCM_PROMPT_UNMERGED$STATUS"
+fi
+
+echo $STATUS

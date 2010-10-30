@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# if this is an hg repo, make note
+export ZSH_HG=$([[ -a ".hg" ]]; echo $?)

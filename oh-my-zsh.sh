@@ -12,7 +12,11 @@ for config_file ($ZSH/custom/*.zsh) source $config_file
 
 # Load all of the plugins that were defined in ~/.zshrc
 plugin=${plugin:=()}
-for plugin ($plugins) source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+for plugin ($plugins);
+do
+	fpath=($ZSH/plugins/$plugin $fpath)
+	source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+done
 
 # Check for updates on initial load...
 if [ "$DISABLE_AUTO_UPDATE" = "true" ]

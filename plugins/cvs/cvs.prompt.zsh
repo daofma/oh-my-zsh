@@ -2,7 +2,7 @@ function cvs_prompt_info() {
   cvsstat=$(cvs status 2>/dev/null)
 
   if [[ $? != 0 ]]; then
-    return
+    return 1
   fi
   zsh_scm_info_branch="$ZSH_THEME_SCM_BRANCH_PREFIX$(parse_cvs_branch $cvsstat)$ZSH_THEME_SCM_BRANCH_SUFFIX"
   zsh_scm_info_tag=""
