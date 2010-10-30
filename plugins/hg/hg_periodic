@@ -3,7 +3,7 @@
 if [[ ${ZSH_HG} -eq 0 ]] then
     export ZSH_HG_INFO_DIRTY=${(e)"$(hg prompt --angle-brackets "${ZSH_HG_DIRTY_TEMPLATE}")"}
     export ZSH_HG_INFO_BRANCH=${(e)"$(hg prompt --angle-brackets "${ZSH_HG_BRANCH_TEMPLATE}")"}
-    export ZSH_HG_INFO_BRANCH_STATUS=${(e)"$(hg_branch_status; touch TEST.branchstatus)"}
+    export ZSH_HG_INFO_BRANCH_STATUS=${(e)"$(hg_branch_status)"}
     export ZSH_HG_INFO_PATCHES=${(e)"$(hg prompt --angle-brackets "${ZSH_HG_PATCHES_TEMPLATE}")"}
     export ZSH_HG_INFO_TAGS=${(e)"$(hg prompt --angle-brackets "${ZSH_HG_TAGS_TEMPLATE}")"}
 fi
