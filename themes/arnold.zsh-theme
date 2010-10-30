@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-PERIOD=1000
-
 PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%} ${ZSH_SCM_INFO_TYPE} ${ZSH_SCM_INFO_BRANCH} ${ZSH_SCM_INFO_BRANCH_STATUS} ${ZSH_SCM_INFO_PATCHES} ${ZSH_SCM_INFO_TAGS}
 %# '
 
