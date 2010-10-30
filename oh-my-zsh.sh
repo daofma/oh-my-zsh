@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Initializes Oh My Zsh
 
 # add a function path
@@ -10,13 +12,8 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 # Load all of your custom configurations from custom/
 for config_file ($ZSH/custom/*.zsh) source $config_file
 
-# Load all of the plugins that were defined in ~/.zshrc
-plugin=${plugin:=()}
-for plugin ($plugins);
-do
-	fpath=($ZSH/plugins/$plugin $fpath)
-	source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-done
+# Load plugins
+source $ZSH/lib/plugins.zsh
 
 # Check for updates on initial load...
 if [ "$DISABLE_AUTO_UPDATE" = "true" ]
@@ -25,3 +22,5 @@ then
 else
   /usr/bin/env zsh $ZSH/tools/check_for_upgrade.sh
 fi
+
+export PERIOD=15
