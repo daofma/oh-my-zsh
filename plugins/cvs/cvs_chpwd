@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# if this is a CVS repo, make note
+export ZSH_CVS=$([[ -a "CVS" ]]; echo $?)

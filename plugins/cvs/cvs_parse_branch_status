@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+cvs_status=$1
+
+# since CVS doesn't have local branches, user can only be behind, never # diverged or ahead.
+if $(echo ${cvsstat} | grep -q "Status: Needs Patch"); then
+    echo -n "$ZSH_THEME_SCM_PROMPT_BEHIND"
+fi

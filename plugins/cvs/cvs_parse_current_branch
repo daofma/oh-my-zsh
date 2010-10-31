@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+cvs_status=$1
+
+# only gets the first sticky tag -- hopefully there aren't multiple
+echo $cvs_status | sed -n 's/^\s*Sticky Tag:\s*\(\S*\).*$/\1/p' | head -n 1
+

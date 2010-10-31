@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+if [[ ${ZSH_CVS} -eq 0 ]]; then
+    export ZSH_SCM_INFO_TYPE="${ZSH_THEME_SCM_PROMPT_CVS}"
+    export ZSH_SCM_INFO_DIRTY="${ZSH_CVS_INFO_DIRTY}"
+    export ZSH_SCM_INFO_BRANCH="${ZSH_CVS_INFO_BRANCH}"
+    export ZSH_SCM_INFO_BRANCH_STATUS="${ZSH_CVS_INFO_BRANCH_STATUS}"
+    export ZSH_SCM_INFO_PATCHES="${ZSH_CVS_INFO_PATCHES}"
+    export ZSH_SCM_INFO_TAGS="${ZSH_CVS_INFO_TAGS}"
+fi

@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+cvs_status=$1
+
+if $(echo ${cvs_status} | grep -q "Status: Locally Modified"); then
+    echo -n "$ZSH_THEME_SCM_PROMPT_DIRTY"
+fi
+
+if $(echo ${cvs_status} | grep -q '^?'); then
+    echo -n "$ZSH_THEME_SCM_PROMPT_UNTRACKED"
+fi
+
+if [[ -n $(echo ${cvs_status} | grep -q "\(Status: Locally Modified\)\|\(Status: Unknown\)") ]]; then
+    echo -n "$ZSH_THEME_SCM_PROMPT_CLEAN"
+fi
