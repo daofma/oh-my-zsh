@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+local svn_status=$1
+
+if ( echo $svn_status | grep -q '^........\*' ); then
+    print "$ZSH_THEME_SCM_PROMPT_BEHIND"
+fi

@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+local svn_info=$1
+
+# assumes the svn de facto standard of having branches be subdirs of "svnroot/branches"
+echo $svn_info | sed -n 's/.*svnroot\/branches/\(\S*\)/\1/p'
