@@ -27,9 +27,13 @@ PS1="%n@%m:%~%# "
 # version control theming default: Variables for theming the version control info prompt
 ZSH_THEME_SCM_PROMPT_PREFIX=":("            # Prefix at the very beginning of the prompt
 ZSH_THEME_SCM_PROMPT_SUFFIX=")"             # At the very end of the prompt
-ZSH_THEME_SCM_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
-ZSH_THEME_SCM_PROMPT_UNTRACKED=""           # Text to display if the branch has files which are not tracked
-ZSH_THEME_SCM_PROMPT_CLEAN=""               # Text to display if the branch is clean
+ZSH_THEME_SCM_PROMPT_DIRTY="*"              # Text to display if the working tree is dirty
+ZSH_THEME_SCM_PROMPT_UNTRACKED=""           # Text to display if the working tree has files which are not tracked
+ZSH_THEME_SCM_PROMPT_RENAMED=""             # Text to display if the working tree has renamed files
+ZSH_THEME_SCM_PROMPT_MODIFIED=""            # Text to display if the working tree has modified files
+ZSH_THEME_SCM_PROMPT_UNMERGED=""            # Text to display if the working tree has a merge in progress
+ZSH_THEME_SCM_PROMPT_DELETED=""             # Text to display if the working tree has files which are deleted
+ZSH_THEME_SCM_PROMPT_CLEAN=""               # Text to display if the working tree is clean
 ZSH_THEME_SCM_PROMPT_SUFFIX=")"             # At the very end of the prompt
 ZSH_THEME_SCM_BRANCH_PREFIX=""              # At the beginning of the current branch
 ZSH_THEME_SCM_BRANCH_SUFFIX=""              # At the end of the current branch
