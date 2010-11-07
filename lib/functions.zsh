@@ -26,11 +26,11 @@ function zsh_stats() {
 }
 
 function uninstall_oh_my_zsh() {
-  /bin/sh $ZSH/tools/uninstall.sh
+  /bin/sh ${OMZ_HOME}/tools/uninstall.sh
 }
 
 function upgrade_oh_my_zsh() {
-  /bin/sh $ZSH/tools/upgrade.sh
+  /bin/sh ${OMZ_HOME}/tools/upgrade.sh
 }
 
 function take() {

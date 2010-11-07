@@ -71,7 +71,7 @@ add-zsh-hook precmd clear_scm_info
 # Setup the prompt with pretty colors
 setopt prompt_subst
 
-fpath+=$ZSH/lib
-fpath+=$ZSH/themes
+fpath+=${OMZ_HOME}/lib
+fpath+=${OMZ_HOME}/themes
 autoload -U promptinit
 promptinit
