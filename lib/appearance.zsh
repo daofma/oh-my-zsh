@@ -58,5 +58,6 @@ ZSH_THEME_SCM_PROMPT_SVN=""                 # If the current directory is in sub
 # Setup the prompt with pretty colors
 setopt prompt_subst
 
-# Load the theme
-source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+fpath+=$ZSH/themes
+autoload -U promptinit
+promptinit
