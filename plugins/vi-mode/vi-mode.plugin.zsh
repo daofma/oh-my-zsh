@@ -5,6 +5,12 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+# binds the builtin edit-command-line function to 'v' when in command/normal
+# mode
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 bindkey -v
 
 # if mode indicator wasn't setup by theme, define default
