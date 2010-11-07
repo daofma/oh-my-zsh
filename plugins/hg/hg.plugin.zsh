@@ -3,7 +3,7 @@
 autoload hg_branch_status
 
 # Assume we didn't start in a hg repo
-export ZSH_HG=256
+export ZSH_VCS_HG_ON=256
 
 export ZSH_HG_DIRTY_TEMPLATE="<status|modified(${ZSH_THEME_SCM_PROMPT_DIRTY})|unknown(${ZSH_THEME_SCM_PROMPT_UNTRACKED})|clean(${ZSH_THEME_SCM_PROMPT_CLEAN})>"
 export ZSH_HG_BRANCH_TEMPLATE="<${ZSH_THEME_SCM_BRANCH_PREFIX}<branch>${ZSH_THEME_SCM_BRANCH_SUFFIX}>"

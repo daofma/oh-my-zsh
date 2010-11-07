@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if [[ ${ZSH_HG} -eq 0 ]] then
+if [[ ${ZSH_VCS_HG_ON} -eq 0 ]] then
     export ZSH_HG_INFO_DIRTY=${(e)"$(hg prompt --angle-brackets "${ZSH_HG_DIRTY_TEMPLATE}")"}
     export ZSH_HG_INFO_BRANCH=${(e)"$(hg prompt --angle-brackets "${ZSH_HG_BRANCH_TEMPLATE}")"}
     export ZSH_HG_INFO_BRANCH_STATUS=${(e)"$(hg_branch_status)"}

@@ -1,10 +1,4 @@
 #!/usr/bin/env zsh
 
-if [[ ${ZSH_GIT} -eq 0 ]]; then
-    export ZSH_SCM_INFO_TYPE="${ZSH_THEME_SCM_PROMPT_GIT}"
-    export ZSH_SCM_INFO_DIRTY="${ZSH_GIT_INFO_DIRTY}"
-    export ZSH_SCM_INFO_BRANCH="${ZSH_GIT_INFO_BRANCH}"
-    export ZSH_SCM_INFO_BRANCH_STATUS="${ZSH_GIT_INFO_BRANCH_STATUS}"
-    export ZSH_SCM_INFO_PATCHES="${ZSH_GIT_INFO_PATCHES}"
-    export ZSH_SCM_INFO_TAGS="${ZSH_GIT_INFO_TAGS}"
-fi
+autoload vcs_prompt_info_template
+vcs_prompt_info_template GIT

@@ -55,9 +55,23 @@ ZSH_THEME_SCM_PROMPT_HG=""                  # If the current directory is in mer
 ZSH_THEME_SCM_PROMPT_CVS=""                 # If the current directory is in cvs
 ZSH_THEME_SCM_PROMPT_SVN=""                 # If the current directory is in subversion
 
+# clear out the scm info vars every time the prompt loads...
+function clear_scm_info () {
+export ZSH_SCM_INFO_TYPE=""
+export ZSH_SCM_INFO_DIRTY=""
+export ZSH_SCM_INFO_BRANCH=""
+export ZSH_SCM_INFO_BRANCH_STATUS=""
+export ZSH_SCM_INFO_PATCHES=""
+export ZSH_SCM_INFO_TAGS=""
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd clear_scm_info
+
 # Setup the prompt with pretty colors
 setopt prompt_subst
 
+fpath+=$ZSH/lib
 fpath+=$ZSH/themes
 autoload -U promptinit
 promptinit

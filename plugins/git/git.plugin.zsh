@@ -3,7 +3,7 @@
 autoload git_parse_current_branch git_parse_dirty git_parse_branch_status
 
 # Assume we didn't start in a git repo
-export ZSH_GIT=128
+export ZSH_VCS_GIT_ON=128
 
 # Aliases
 alias g='git'

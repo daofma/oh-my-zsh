@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if [[ ${ZSH_GIT} -eq 0 ]] then
+if [[ ${ZSH_VCS_GIT_ON} -eq 0 ]] then
     git_branch="$(git branch -v 2>/dev/null | grep "^*")"
     git_status="$(git status --porcelain 2>/dev/null)"
 
