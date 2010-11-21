@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
 # if this is a git repo, make note
-export ZSH_VCS_GIT_ON=$([[ -a ".git" ]]; echo $?)
+export ZSH_VCS_GIT_ON=$(git rev-parse --is-inside-work-tree &> /dev/null; echo $?)

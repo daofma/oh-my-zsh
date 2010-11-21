@@ -1,33 +1,34 @@
 #!/usr/bin/env zsh
 
 local git_status=$1
+local git_basedir=$2
 
-STATUS=""
+local status_indicator=""
 
 if $(echo "$git_status" | grep -q '^?? '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_UNTRACKED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" untracked status_indicator
 fi
 
 if $(echo "$git_status" | grep -q '^A  '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_ADDED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" added status_indicator
 elif $(echo "$git_status" | grep -q '^M  '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_ADDED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" added status_indicator
 fi
 
 if $(echo "$git_status" | grep -q '^ M '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_MODIFIED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" modified status_indicator
 fi
 
 if $(echo "$git_status" | grep -q '^R  '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_RENAMED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" renamed status_indicator
 fi
 
 if $(echo "$git_status" | grep -q '^ D '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_DELETED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" deleted status_indicator
 fi
 
 if $(echo "$git_status" | grep -q '^UU '); then
-    STATUS="$ZSH_THEME_SCM_PROMPT_UNMERGED$STATUS"
+    zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" unmerged status_indicator
 fi
 
-echo $STATUS
+print "$status_indicator"
