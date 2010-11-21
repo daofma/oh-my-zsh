@@ -26,3 +26,12 @@ function vi_mode_prompt_info() {
 if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
+
+# set the pager to the vim less script, if it exists.
+# this could easily be extended to look for it in other places.
+if [[ -a "/usr/share/vim/vim73/macros/less.sh" ]]; then
+    export PAGER=/usr/share/vim/vim73/macros/less.sh
+fi
+
+# set the editor to vim
+export EDITOR=vim
