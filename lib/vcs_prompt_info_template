@@ -1,14 +1,16 @@
 #!/usr/bin/env zsh
 
-type_var=ZSH_VCS_$1_ON
-theme_prompt_var=ZSH_THEME_SCM_PROMPT_$1
-dirty_var=ZSH_$1_INFO_DIRTY
-branch_var=ZSH_$1_INFO_BRANCH
-branch_status_var=ZSH_$1_INFO_BRANCH_STATUS
-patches_var=ZSH_$1_INFO_PATCHES
-tags_var=ZSH_$1_INFO_TAGS
+rcs_type=$1
+lc_rcs_type=${(L)rcs_type}
 
-#if someone else is on, don't print
+type_var=ZSH_VCS_${rcs_type}_ON
+dirty_var=ZSH_${rcs_type}_INFO_DIRTY
+branch_var=ZSH_${rcs_type}_INFO_BRANCH
+branch_status_var=ZSH_${rcs_type}_INFO_BRANCH_STATUS
+patches_var=ZSH_${rcs_type}_INFO_PATCHES
+tags_var=ZSH_${rcs_type}_INFO_TAGS
+
+#if another plugin is on, don't print
 #note that this means for a dir with multiple vcss, none are shown.
 for flag in $(env | grep \$ZSH_VCS_\.\*_ON)
 do
@@ -21,22 +23,10 @@ if [[ ${(P)type_var} -ne 0 ]] then
     return
 fi
 
-if [[ -z $ZSH_SCM_INFO_TYPE ]] then
-export ZSH_SCM_INFO_TYPE="${(P)theme_prompt_var}"
-fi
-if [[ -z $ZSH_SCM_INFO_DIRTY ]] then
-export ZSH_SCM_INFO_DIRTY="${(P)dirty_var}"
-fi
-if [[ -z $ZSH_SCM_INFO_BRANCH ]] then
-export ZSH_SCM_INFO_BRANCH="${(P)branch_var}"
-fi
-if [[ -z $ZSH_SCM_INFO_BRANCH_STATUS ]] then
-export ZSH_SCM_INFO_BRANCH_STATUS="${(P)branch_status_var}"
-fi
-if [[ -z $ZSH_SCM_INFO_PATCHES ]] then
-export ZSH_SCM_INFO_PATCHES="${(P)patches_var}"
-fi
-if [[ -z $ZSH_SCM_INFO_TAGS ]] then
-export ZSH_SCM_INFO_TAGS="${(P)tags_var}"
-fi
+zstyle -s ":oh-my-zsh:vcs-info:${lc_rcs_type}" format ZSH_SCM_INFO_TYPE 
+ZSH_SCM_INFO_DIRTY="${(P)dirty_var}"
+ZSH_SCM_INFO_BRANCH="${(P)branch_var}"
+ZSH_SCM_INFO_BRANCH_STATUS="${(P)branch_status_var}"
+ZSH_SCM_INFO_PATCHES="${(P)patches_var}"
+ZSH_SCM_INFO_TAGS="${(P)tags_var}"
 

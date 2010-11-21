@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
 
 local git_branch=$1
+local git_basedir=$2
+local format
+local branch_info
 
-echo $git_branch | cut -d' ' -f 2
+zstyle -s ":oh-my-zsh:vcs-info:prompt:git:$git_basedir" branch-format format
+
+zformat -f branch_info $format B:$(print $git_branch | cut -d' ' -f 2)
+
+print $branch_info
